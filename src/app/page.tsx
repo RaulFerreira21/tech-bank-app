@@ -1,4 +1,5 @@
-import MainContainer from "@/components/main-container.component";
+import MainContainer from "@/components/Container";
+
 
 
 export default function Home({Component, pageProps}:any) {
