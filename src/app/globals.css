@@ -3,6 +3,15 @@
 
 }
 .MuiContainer-root {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.navigationLink{
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+}
+.navigationLink :hover {
+    text-decoration: underline;
+    color: #121212
 }

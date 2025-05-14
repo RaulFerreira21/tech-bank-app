@@ -15,14 +15,28 @@ export default function HeaderComponent() {
         width: '100%',
         height: '56px',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems: 'center',
+        padding: '10px 0',
+        marginBottom: '10px'
       }}
     >
       <Box component="nav" sx={{ display: 'flex', alignItems: 'center' }}>
-        <AccountCircleIcon color="action" fontSize="large" />
+        <AccountCircleIcon fontSize="medium" sx={{ marginRight: '5px', color: 'white'}} />
         <Typography variant="h6">Olá, {user}</Typography>
-        <Link href={'/dashboard'}>Teste</Link>
+        
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'space-around', listStyle: 'none', color: 'white', textDecoration: 'none'}}>
+        <Link className='navigationLink' href={'/dashboard'}>
+         <Typography variant="body1">Dashboard</Typography>
+        
+        </Link>
+        <Link className='navigationLink' href={'/dashboard'}>
+           <Typography variant="body1">Extrato</Typography>
+        </Link>
+        <Link className='navigationLink' href={'/dashboard'}>
+         <Typography variant="body1">Transferir</Typography>
+        </Link>
       </Box>
       <Box>
         <LogoutIcon></LogoutIcon>

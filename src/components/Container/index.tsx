@@ -1,5 +1,6 @@
 import { Container, Box } from '@mui/material'
 import HeaderComponent from '../Header'
+import Balance from '../Balance'
 
 export default function MainContainer() {
   return (
@@ -8,6 +9,7 @@ export default function MainContainer() {
     >
       <Box>
         <HeaderComponent />
+        <Balance></Balance>
       </Box>
     </Container>
   )
