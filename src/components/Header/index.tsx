@@ -31,7 +31,7 @@ export default function HeaderComponent() {
          <Typography variant="body1">Dashboard</Typography>
         
         </Link>
-        <Link className='navigationLink' href={'/dashboard'}>
+        <Link className='navigationLink' href={'/extrato'}>
            <Typography variant="body1">Extrato</Typography>
         </Link>
         <Link className='navigationLink' href={'/dashboard'}>
