@@ -1,3 +1,5 @@
+"use client"
+
 import { Box, Typography } from "@mui/material"
 import AccountCircleIcon from "@mui/icons-material/AccountCircle"
 import LogoutIcon from "@mui/icons-material/Logout"

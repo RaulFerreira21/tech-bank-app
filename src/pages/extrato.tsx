@@ -1,3 +1,5 @@
+"use client"
+
 import ExtratoList from "../components/ExtratoList";
 import LanguageIcon from "@mui/icons-material/Language";
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';

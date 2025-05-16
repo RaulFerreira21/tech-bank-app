@@ -1,4 +1,6 @@
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
+"use client"
+
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter"
 
 export default function RootLayout({
   children,

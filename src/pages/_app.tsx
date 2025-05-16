@@ -1,3 +1,5 @@
+"use client"
+
 import '@/app/globals.css'
 import MainContainer from '@/components/Container'
 import { useTheme } from '@/styles/useTheme'
