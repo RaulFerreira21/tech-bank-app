@@ -1,3 +1,5 @@
+"use client"
+
 import { Box, Typography } from "@mui/material"
 import AccountCircleIcon from "@mui/icons-material/AccountCircle"
 import LogoutIcon from "@mui/icons-material/Logout"
@@ -45,6 +47,9 @@ export default function HeaderComponent() {
         </Link>
         <Link className="navigationLink" href={"/extrato"}>
           <Typography variant="body1">Extrato</Typography>
+        </Link>
+         <Link className="navigationLink" href={"/deposito"}>
+          <Typography variant="body1">Depósito</Typography>
         </Link>
         <Link className="navigationLink" href={"/dashboard"}>
           <Typography variant="body1">Transferir</Typography>

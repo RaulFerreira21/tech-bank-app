@@ -1,3 +1,5 @@
+"use client"
+
 import { Box, Fab as FabButton, Typography } from "@mui/material"
 import { ComponentProps, type ReactNode } from "react"
 
@@ -8,7 +10,6 @@ type ButtonServicesProps = ComponentProps<typeof FabButton> & {
 
 export default function ButtonServices({
   label,
-
   icon,
   ...rest
 }: ButtonServicesProps) {

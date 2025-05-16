@@ -1,30 +1,33 @@
-import { Button as MuiButton } from '@mui/material'
+"use client"
 
-type ButtonProps = {
+import { Button as MuiButton } from "@mui/material"
+import type { ComponentProps } from "react"
+
+type ButtonProps = ComponentProps<typeof MuiButton> & {
   text: string
-  color: 'primary' | 'secondary' | 'info' | 'inherit'
+  color: "primary" | "secondary" | "info" | "inherit"
 }
 
-export default function Button({ text, color, ...props }: ButtonProps) {
+export default function Button({ text, color, ...rest }: ButtonProps) {
   return (
     <MuiButton
       color={color}
       variant="contained"
       sx={{
-        textTransform: 'none',
+        textTransform: "none",
         borderRadius: 0,
-        width: '6rem',
-        backgroundColor: color === 'inherit' ? 'inherit' : color,
+        width: "auto",
+        backgroundColor: color === "inherit" ? "inherit" : color,
         color:
-          color === 'inherit'
-            ? 'white'
-            : color === 'secondary'
-            ? 'black'
-            : 'white',
+          color === "inherit"
+            ? "black"
+            : color === "secondary"
+            ? "black"
+            : "white",
         border:
-          color === 'inherit' ? '1px solid white' : '1px solid transparent',
+          color === "inherit" ? "1px solid black" : "1px solid transparent",
       }}
-      {...props}
+      {...rest}
     >
       {text}
     </MuiButton>

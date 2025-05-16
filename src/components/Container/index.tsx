@@ -1,3 +1,5 @@
+"use client"
+
 import Balance from "@/components/Balance"
 import HeaderComponent from "@/components/Header"
 import { Container, Box } from "@mui/material"
