@@ -46,6 +46,9 @@ export default function HeaderComponent() {
         <Link className="navigationLink" href={"/extrato"}>
           <Typography variant="body1">Extrato</Typography>
         </Link>
+         <Link className="navigationLink" href={"/deposito"}>
+          <Typography variant="body1">Depósito</Typography>
+        </Link>
         <Link className="navigationLink" href={"/dashboard"}>
           <Typography variant="body1">Transferir</Typography>
         </Link>
