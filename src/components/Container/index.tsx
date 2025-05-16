@@ -1,6 +1,6 @@
-import Balance from '@/components/Balance'
-import HeaderComponent from '@/components/Header'
-import { Container, Box } from '@mui/material'
+import Balance from "@/components/Balance"
+import HeaderComponent from "@/components/Header"
+import { Container, Box } from "@mui/material"
 
 export default function MainContainer({
   children,
@@ -9,11 +9,18 @@ export default function MainContainer({
 }) {
   return (
     <Container
-      sx={{ border: '1px solid #454545', height: '100vh', pr: 0, pl: 0 }}
+      sx={{
+        border: "1px solid #454545",
+        height: "100vh",
+        pr: 0,
+        pl: 0,
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
-      <Box>
-        <HeaderComponent />
-        <Balance />
+      <HeaderComponent />
+      <Balance />
+      <Box sx={{ bgcolor: "#e8e8e8", flex: 1 }}>
         {children}
       </Box>
     </Container>

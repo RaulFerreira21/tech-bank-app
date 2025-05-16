@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import {
   Box,
   Button,
@@ -6,13 +6,13 @@ import {
   CardActions,
   CardContent,
   Typography,
-} from "@mui/material";
-import Link from "next/link";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import React from "react";
+} from "@mui/material"
+import Link from "next/link"
+import VisibilityIcon from "@mui/icons-material/Visibility"
+import React from "react"
 
 export default function Balance() {
-  const balance = 'R$ 7.000,00'
+  const balance = "R$ 7.000,00"
   const [showedBalance, setShowBalance] = React.useState(false)
 
   function handleShowBalance() {
@@ -24,28 +24,28 @@ export default function Balance() {
     <Box>
       <Card
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          background: 'transparent',
-          color: 'white',
-          border: '1px solid #454545',
+          display: "flex",
+          justifyContent: "space-between",
+          background: "transparent",
+          color: "white",
+          borderBottom: "1px solid #454545",
           borderRadius: 0,
         }}
       >
         <CardContent>
-          <Typography variant="body2" sx={{ margin: '0 0 10px 0' }}>
+          <Typography variant="body2" sx={{ margin: "0 0 10px 0" }}>
             Saldo:
           </Typography>
           <Box
             sx={{
-              display: 'flex',
-              alignContent: 'center',
-              alignItems: 'center',
+              display: "flex",
+              alignContent: "center",
+              alignItems: "center",
             }}
           >
             <Typography variant="body2">{balance}</Typography>
             <VisibilityIcon
-              sx={{ color: 'white', marginLeft: '10px' }}
+              sx={{ color: "white", marginLeft: "10px" }}
               onClick={handleShowBalance}
             />
           </Box>
