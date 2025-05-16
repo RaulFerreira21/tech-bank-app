@@ -7,7 +7,7 @@ type ButtonServicesProps = ComponentProps<typeof FabButton> & {
   icon: ReactNode
 }
 
-export function ButtonServices({
+export default function ButtonServices({
   label,
   color,
   icon,

@@ -1,14 +1,15 @@
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import './globals.css'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 
- export default function RootLayout(props) {
-   return (
-     <html lang="pt-BR">
-       <body className='layout'>
-        <AppRouterCacheProvider>
-           {props.children}
-        </AppRouterCacheProvider>
-       </body>
-     </html>
-   );
- }
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="pt-BR">
+      <body>
+        <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+      </body>
+    </html>
+  )
+}
