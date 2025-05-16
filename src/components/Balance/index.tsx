@@ -6,9 +6,10 @@ import {
   CardActions,
   CardContent,
   Typography,
-} from '@mui/material'
-import VisibilityIcon from '@mui/icons-material/Visibility'
-import React from 'react'
+} from "@mui/material";
+import Link from "next/link";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import React from "react";
 
 export default function Balance() {
   const balance = 'R$ 7.000,00'
@@ -50,9 +51,11 @@ export default function Balance() {
           </Box>
         </CardContent>
         <CardActions>
-          <Button size="small">
-            <Typography variant="body2">Ver Extrato</Typography>
-          </Button>
+          <Link href="/extrato" passHref>
+            <Button size="small">
+              <Typography variant="body2">Ver Extrato</Typography>
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </Box>
