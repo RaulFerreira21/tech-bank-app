@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Box,
@@ -7,18 +7,18 @@ import {
   CardActions,
   CardContent,
   Typography,
-} from "@mui/material"
-import Link from "next/link"
-import VisibilityIcon from "@mui/icons-material/Visibility"
-import React from "react"
+} from "@mui/material";
+import Link from "next/link";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import React from "react";
 
 export default function Balance() {
-  const balance = "R$ 7.000,00"
-  const [showedBalance, setShowBalance] = React.useState(false)
+  const balance = "R$ 7.000,00";
+  const [showedBalance, setShowBalance] = React.useState(false);
 
   function handleShowBalance() {
-    setShowBalance(!showedBalance)
-    console.log(showedBalance)
+    setShowBalance(!showedBalance);
   }
 
   return (
@@ -33,23 +33,33 @@ export default function Balance() {
           borderRadius: 0,
         }}
       >
-        <CardContent>
-          <Typography variant="body2" sx={{ margin: "0 0 10px 0" }}>
+        <CardContent sx={{
+          display: "flex"
+        }}>
+          <Typography variant="body2" sx={{ margin: "0 8px 0 0" }}>
             Saldo:
           </Typography>
-          <Box
+          <Typography
+            variant="body2"
             sx={{
-              display: "flex",
-              alignContent: "center",
-              alignItems: "center",
+              filter: showedBalance ? "none" : "blur(6px)",
+              transition: "filter 0.4s",
+              userSelect: showedBalance ? "text" : "none",
             }}
           >
-            <Typography variant="body2">{balance}</Typography>
-            <VisibilityIcon
-              sx={{ color: "white", marginLeft: "10px" }}
+            {balance}
+          </Typography>
+          {showedBalance ? (
+            <VisibilityOffIcon
+              sx={{ color: "white", borderRadius: '10px', fontSize: "small", marginLeft: "10px", cursor: "pointer" }}
               onClick={handleShowBalance}
             />
-          </Box>
+          ) : (
+            <VisibilityIcon
+              sx={{ color: "white", fontSize: "larger", marginLeft: "10px", cursor: "pointer" }}
+              onClick={handleShowBalance}
+            />
+          )}
         </CardContent>
         <CardActions>
           <Link href="/extrato" passHref>
@@ -60,5 +70,5 @@ export default function Balance() {
         </CardActions>
       </Card>
     </Box>
-  )
+  );
 }

@@ -13,6 +13,7 @@ export default function HeaderComponent() {
       component="header"
       sx={{
         bgcolor: "#236B7A",
+        backgroundImage: 'linear-gradient(45deg, #12120F, transparent);',
         color: "#FAFAFA",
         width: "100%",
         height: "56px",
@@ -20,7 +21,6 @@ export default function HeaderComponent() {
         justifyContent: "space-around",
         alignItems: "center",
         padding: "10px 0",
-        marginBottom: "10px",
       }}
     >
       <Box component="nav" sx={{ display: "flex", alignItems: "center" }}>
