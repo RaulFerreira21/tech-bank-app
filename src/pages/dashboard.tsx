@@ -1,10 +1,20 @@
 "use client"
 
+import Button from "@/components/Button"
+import ButtonServices from "@/components/ButtonServices"
+import { Card, Container } from "@mui/material"
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import SavingsIcon from '@mui/icons-material/Savings';
+
 export default function Dashboard() {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome to the dashboard!</p>
-    </div>
+    <Container>
+      <Card>
+        <ButtonServices icon='CurrencyExchangeIcon' label="Transferir"></ButtonServices>
+        <ButtonServices icon='ReceiptIcon' label="Pagar Boleto"></ButtonServices>
+        <ButtonServices icon='SavingsIcon' label="Depositar"></ButtonServices>
+      </Card>
+    </Container>
   )
 }
