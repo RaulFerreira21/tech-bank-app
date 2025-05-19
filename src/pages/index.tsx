@@ -1,8 +1,9 @@
-"use client"
+'use client';
 
-import Content from "@/components/Content"
-import Navbar from "@/components/Navbar"
-import { Box } from "@mui/material"
+import Content from '@/components/Content';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
+import { Box } from '@mui/material';
 
 export default function Home() {
   return (
@@ -10,13 +11,14 @@ export default function Home() {
       <Navbar />
       <Box
         sx={{
-          minHeight: "100vh",
-          background: "linear-gradient(to bottom, #121212, #c6dce4)",
-          paddingTop: "90px",
+          minHeight: '100vh',
+          background: 'linear-gradient(to bottom, #121212, #c6dce4)',
+          paddingTop: '90px',
         }}
       >
         <Content />
       </Box>
+      <Footer />
     </>
-  )
+  );
 }

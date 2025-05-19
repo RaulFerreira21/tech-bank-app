@@ -21,7 +21,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
       <MainContainer>
         <Component {...pageProps} />
       </MainContainer>

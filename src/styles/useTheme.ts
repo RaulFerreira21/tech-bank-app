@@ -1,9 +1,12 @@
-"use client"
+'use client';
 
-import { createTheme } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles';
 
 export function useTheme() {
   const theme = createTheme({
+    typography: {
+      fontFamily: 'Poppins, sans-serif',
+    },
     palette: {
       primary: { main: '#236B7A', dark: '#537880' },
       secondary: { main: '#acacac', dark: '#e6e6e6' },
@@ -18,7 +21,7 @@ export function useTheme() {
         },
       },
     },
-  })
+  });
 
-  return theme
+  return theme;
 }
