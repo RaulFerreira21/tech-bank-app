@@ -1,6 +1,6 @@
 "use client"
 
-import Button from "@/components/Button"
+import Button from "@/components/CButton"
 import ButtonServices from "@/components/ButtonServices"
 import { Card, Container } from "@mui/material"
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
