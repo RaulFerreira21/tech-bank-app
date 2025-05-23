@@ -10,21 +10,21 @@ export default function MainContainer({
   children: React.ReactNode
 }) {
   return (
-    <Container
-      sx={{
-        border: "1px solid #454545",
-        height: "100vh",
-        pr: 0,
-        pl: 0,
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <HeaderComponent />
-      <Balance />
-      <Box sx={{ bgcolor: "#e8e8e8", flex: 1 }}>
-        {children}
-      </Box>
-    </Container>
+    <>
+      <Container
+        sx={{
+          border: "1px solid #454545",
+          height: "100vh",
+          pr: 0,
+          pl: 0,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <HeaderComponent />
+        <Balance />
+        <Box sx={{ bgcolor: "#e8e8e8", flex: 1 }}>{children}</Box>
+      </Container>
+    </>
   )
 }

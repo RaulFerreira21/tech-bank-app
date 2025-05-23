@@ -25,7 +25,7 @@ export default function Title({ title }: TitleProps) {
         {title}
       </Typography>
 
-      <Link href="/">
+      <Link href="/dashboard">
         <IconButton
           sx={(theme) => ({
             position: "absolute",
