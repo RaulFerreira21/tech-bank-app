@@ -5,9 +5,52 @@ import { useState } from 'react';
 
 export default function Transferir() {
   const [contaDeposito, setContaDeposito] = useState('');
+  const [destinatario, setDestinatario] = useState('');
+  const [valor, setValor] = useState('');
 
   function handleConta(conta: string) {
     setContaDeposito(conta);
+  }
+
+  async function handleConcluir() {
+    if (!destinatario || !valor || !contaDeposito) {
+      alert('Preencha todos os campos e selecione a conta.');
+      return;
+    }
+
+    const valorNumerico = Number(valor.replace(',', '.').replace('R$', '').trim());
+    if (isNaN(valorNumerico) || valorNumerico <= 0) {
+      alert('Digite um valor válido para transferência.');
+      return;
+    }
+
+    const contaLabel =
+      contaDeposito === 'conta-corrente'
+        ? 'Conta Corrente'
+        : contaDeposito === 'conta-poupança'
+        ? 'Conta Poupança'
+        : contaDeposito;
+
+    const novoItem = {
+      tipo: `Transferência (${contaLabel})`, // <-- agora mostra a conta ao lado do tipo
+      descricao: destinatario,
+      horario: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+      valor: -Math.abs(valorNumerico), // valor negativo para saída
+      icone: 'LanguageIcon',
+      data: new Date().toISOString().slice(0, 10),
+      conta: contaDeposito,
+    };
+
+    await fetch('http://localhost:3001/extrato', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(novoItem),
+    });
+
+    alert('Transferência realizada com sucesso!');
+    setDestinatario('');
+    setValor('');
+    setContaDeposito('');
   }
 
   return (
@@ -25,7 +68,9 @@ export default function Transferir() {
         <TextField
           fullWidth
           variant="standard"
-          placeholder=""
+          placeholder="Nome do destinatário"
+          value={destinatario}
+          onChange={(e) => setDestinatario(e.target.value)}
           slotProps={{
             input: {
               disableUnderline: false,
@@ -39,12 +84,14 @@ export default function Transferir() {
           color="textSecondary"
           sx={{ mb: 1, fontWeight: 'bold' }}
         >
-          Qual valor você deseja depositar?
+          Qual valor você deseja transferir?
         </Typography>
         <TextField
           fullWidth
           variant="standard"
           placeholder="R$"
+          value={valor}
+          onChange={(e) => setValor(e.target.value)}
           slotProps={{
             input: {
               disableUnderline: false,
@@ -83,7 +130,7 @@ export default function Transferir() {
         </Box>
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <CButton color="primary" text="Concluir" />
+          <CButton color="primary" text="Concluir" onClick={handleConcluir} />
         </Box>
       </Box>
     </>

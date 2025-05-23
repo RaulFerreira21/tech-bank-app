@@ -63,6 +63,38 @@ export default function ExtratoList({ itens }: Readonly<ExtratoListProps>) {
 
   const datasOrdenadas = Object.keys(grupos).sort((a, b) => (a < b ? 1 : -1));
 
+  // Função para editar valor
+  const handleEdit = async (item: ExtratoItem) => {
+    const novoValorStr = window.prompt(
+      `Editar valor para "${item.descricao}" (valor atual: ${item.valor}):`,
+      item.valor.toString()
+    );
+    if (novoValorStr === null) return; // Cancelado
+    const novoValor = Number(novoValorStr.replace(',', '.'));
+    if (isNaN(novoValor)) {
+      window.alert('Valor inválido!');
+      return;
+    }
+    await fetch(`http://localhost:3001/extrato/${item.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ valor: novoValor }),
+    });
+    window.location.reload(); // Atualiza a lista (simples)
+  };
+
+  // Função para deletar item
+  const handleDelete = async (item: ExtratoItem) => {
+    const confirmar = window.confirm(
+      `Deseja realmente excluir "${item.descricao}"?`
+    );
+    if (!confirmar) return;
+    await fetch(`http://localhost:3001/extrato/${item.id}`, {
+      method: 'DELETE',
+    });
+    window.location.reload(); // Atualiza a lista (simples)
+  };
+
   return (
     <Box
       sx={{
@@ -111,6 +143,7 @@ export default function ExtratoList({ itens }: Readonly<ExtratoListProps>) {
                           edge="end"
                           aria-label="edit"
                           sx={{ color: '#000', mr: 2 }}
+                          onClick={() => handleEdit(item)}
                         >
                           <EditIcon />
                         </IconButton>
@@ -118,6 +151,7 @@ export default function ExtratoList({ itens }: Readonly<ExtratoListProps>) {
                           edge="end"
                           aria-label="delete"
                           sx={{ color: '#000' }}
+                          onClick={() => handleDelete(item)}
                         >
                           <DeleteIcon />
                         </IconButton>

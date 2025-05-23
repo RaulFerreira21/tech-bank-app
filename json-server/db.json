@@ -1,0 +1,86 @@
+{
+  "extrato": [
+    {
+      "id": "3",
+      "tipo": "Depósito",
+      "descricao": "Banco XYZ",
+      "horario": "12:00",
+      "valor": 500,
+      "icone": "AttachMoneyIcon",
+      "data": "2025-05-14"
+    },
+    {
+      "id": "4",
+      "tipo": "Compra Online",
+      "descricao": "Amazon",
+      "horario": "12:00",
+      "valor": -150,
+      "icone": "StorefrontIcon",
+      "data": "2025-05-15"
+    },
+    {
+      "id": "5",
+      "tipo": "Compra Online",
+      "descricao": "iFood",
+      "horario": "20:00",
+      "valor": -39.59,
+      "icone": "StorefrontIcon",
+      "data": "2025-05-15"
+    },
+    {
+      "id": "6",
+      "tipo": "Compra Online",
+      "descricao": "iFood",
+      "horario": "20:00",
+      "valor": -39.59,
+      "icone": "StorefrontIcon",
+      "data": "2025-05-15"
+    },
+    {
+      "id": "7",
+      "tipo": "Compra Online",
+      "descricao": "iFood",
+      "horario": "20:00",
+      "valor": -39.59,
+      "icone": "StorefrontIcon",
+      "data": "2025-05-15"
+    },
+    {
+      "id": "8",
+      "tipo": "Compra Online",
+      "descricao": "iFood",
+      "horario": "20:00",
+      "valor": -39.59,
+      "icone": "StorefrontIcon",
+      "data": "2025-05-15"
+    },
+    {
+      "id": "70ec",
+      "tipo": "Depósito",
+      "descricao": "Conta Corrente",
+      "horario": "18:53",
+      "valor": 1000,
+      "icone": "AttachMoneyIcon",
+      "data": "2025-05-23"
+    },
+    {
+      "id": "ff89",
+      "tipo": "Depósito",
+      "descricao": "Conta Poupança",
+      "horario": "18:57",
+      "valor": 500,
+      "icone": "AttachMoneyIcon",
+      "data": "2025-05-23"
+    },
+    {
+      "id": "1ca0",
+      "tipo": "Transferência (Conta Corrente)",
+      "descricao": "Jerfeson",
+      "horario": "19:06",
+      "valor": -1000,
+      "icone": "LanguageIcon",
+      "data": "2025-05-23",
+      "conta": "conta-corrente"
+    }
+  ]
+}
