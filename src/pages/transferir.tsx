@@ -1,6 +1,6 @@
 import Title from "@/components/Title";
 import { Box, TextField, Typography } from "@mui/material";
-import Button from "@/components/Button";
+import CButton from "@/components/CButton";
 import { useState } from "react";
 
 export default function Transferir() {
@@ -58,12 +58,12 @@ export default function Transferir() {
               justifyContent: "center",
             }}
           >
-            <Button
+            <CButton
               color={contaDeposito === "conta-corrente" ? "info" : "inherit"}
               text="conta-corrente"
               onClick={() => handleConta("conta-corrente")}
             />
-            <Button
+            <CButton
               color={contaDeposito === "conta-poupança" ? "info" : "inherit"}
               text="conta-poupança"
               onClick={() => handleConta("conta-poupança")}
@@ -72,7 +72,7 @@ export default function Transferir() {
         </Box>
 
         <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-          <Button color="primary" text="Concluir" />
+          <CButton color="primary" text="Concluir" />
         </Box>
       </Box>
     </>
