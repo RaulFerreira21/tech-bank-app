@@ -7,12 +7,12 @@ export default function CardComponents() {
       sx={{
         width: '100%',
         bgcolor: '#121212',
-        color: '#fff',
         p: 2,
         borderBottom: '1px solid #454545',
+        color: '#ffffff',
       }}
     >
-      <Typography variant="h4">Investimentos</Typography>
+      <Typography variant="h6">Investimentos</Typography>
       <Box
         sx={{
           display: 'flex',

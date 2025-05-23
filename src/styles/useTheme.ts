@@ -6,6 +6,7 @@ export function useTheme() {
   const theme = createTheme({
     typography: {
       fontFamily: 'Poppins, sans-serif',
+
       h1: {
         fontSize: '36px',
         fontWeight: 700,
@@ -39,7 +40,7 @@ export function useTheme() {
         lineHeight: 1.5,
       },
       body1: {
-        fontSize: '16px',
+        fontSize: '14px',
         fontWeight: 500,
         lineHeight: 1.6,
       },
@@ -54,7 +55,12 @@ export function useTheme() {
       primary: { main: '#236B7A', dark: '#537880' },
       secondary: { main: '#acacac', dark: '#e6e6e6' },
       info: { main: '#5b5b5b', dark: '#7c7c7c' },
+      text: {
+        // primary: '#ffffff',
+        secondary: '#000000',
+      },
     },
+
     components: {
       MuiCssBaseline: {
         styleOverrides: {

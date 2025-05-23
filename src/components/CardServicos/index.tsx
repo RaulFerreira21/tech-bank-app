@@ -10,12 +10,12 @@ export default function CardServicos() {
         flexDirection: 'column',
         width: '100%',
         bgcolor: '#121212',
-        color: '#fff',
         p: 2,
         borderBottom: '1px solid #454545',
+        color: '#ffffff',
       }}
     >
-      <Typography variant="h4">Outros serviços</Typography>
+      <Typography variant="h6">Outros serviços</Typography>
 
       <Box sx={{ display: 'flex', flexDirection: 'column', px: 4, py: 1 }}>
         {options.map((item) => (

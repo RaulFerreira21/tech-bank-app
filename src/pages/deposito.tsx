@@ -16,7 +16,7 @@ export default function Deposito() {
     <>
       <Title title="Realizar depósito" />
 
-      <Box sx={{ p: 3 }}>
+      <Box sx={{ p: 3, bgcolor: '#ffffff' }}>
         <Typography variant="subtitle1" sx={{ mb: 1, fontWeight: 'bold' }}>
           Qual valor deseja depositar?
         </Typography>
