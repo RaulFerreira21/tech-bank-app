@@ -1,17 +1,18 @@
 .layout {
-    background-color: #121212;
-
+  background-color: #121212;
 }
 .MuiContainer-root {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
-.navigationLink{
-    text-decoration: none;
-    color: white;
-    margin: 0 10px;
+.navigationLink {
+  text-decoration: none;
+  color: white;
 }
-.navigationLink :hover {
-    text-decoration: underline;
-    color: #121212
+
+.actions {
+  background-color: #5b5b5b;
+}
+.actions :hover {
+  background-color: #363636;
 }

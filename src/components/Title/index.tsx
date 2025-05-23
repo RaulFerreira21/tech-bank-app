@@ -1,25 +1,27 @@
-"use client"
+'use client';
 
-import { Box, IconButton, Typography } from "@mui/material"
-import CloseIcon from "@mui/icons-material/Close"
-import Link from "next/link"
+import { Box, IconButton, Typography } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import Link from 'next/link';
 
 interface TitleProps {
-  title: string
+  title: string;
 }
 
 export default function Title({ title }: TitleProps) {
   return (
     <Box
       sx={{
-        position: "relative",
+        position: 'relative',
         padding: 2,
+        bgcolor: '#fff',
       }}
     >
       <Typography
         variant="h6"
+        color="textSecondary"
         sx={{
-          textAlign: "center",
+          textAlign: 'center',
         }}
       >
         {title}
@@ -28,7 +30,7 @@ export default function Title({ title }: TitleProps) {
       <Link href="/dashboard">
         <IconButton
           sx={(theme) => ({
-            position: "absolute",
+            position: 'absolute',
             right: 8,
             top: 8,
             color: theme.palette.grey[500],
@@ -38,5 +40,5 @@ export default function Title({ title }: TitleProps) {
         </IconButton>
       </Link>
     </Box>
-  )
+  );
 }

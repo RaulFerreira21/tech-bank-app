@@ -25,7 +25,7 @@ export default function HeaderComponent() {
     >
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <AccountCircleIcon sx={{ marginRight: '8px', color: 'white' }} />
-        <Typography variant="h6">Olá, {user}</Typography>
+        <Typography variant="h5">Olá, {user}</Typography>
       </Box>
 
       <Link href={'/'}>

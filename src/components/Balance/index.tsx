@@ -1,48 +1,62 @@
 'use client';
 
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-} from '@mui/material';
-import Link from 'next/link';
+import { Box, Typography } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import React from 'react';
+import logoSmall from '../../assets/logo_small_white.png';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Balance() {
   const balance = 'R$ 7.000,00';
-  const [showedBalance, setShowBalance] = React.useState(false);
+  const [showedBalance, setShowBalance] = useState(false);
 
   function handleShowBalance() {
     setShowBalance(!showedBalance);
   }
 
   return (
-    <Box>
-      <Card
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        color: 'white',
+        borderBottom: '1px solid #454545',
+        px: 2,
+        py: 3,
+      }}
+    >
+      <Box
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          background: 'transparent',
-          color: 'white',
-          borderBottom: '1px solid #454545',
-          borderRadius: 0,
+          alignItems: 'center',
         }}
       >
-        <CardContent
+        <Typography variant="h6" fontWeight={600}>
+          Saldo
+        </Typography>
+        <Image src={logoSmall} alt="Logo" width={21} height={20} />
+      </Box>
+
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          mt: 1,
+        }}
+      >
+        <Box
           sx={{
             display: 'flex',
+            alignItems: 'center',
+            gap: 2,
+            px: 4,
           }}
         >
-          <Typography variant="body2" sx={{ margin: '0 8px 0 0' }}>
-            Saldo:
-          </Typography>
           <Typography
-            variant="body2"
+            variant="h4"
             sx={{
               filter: showedBalance ? 'none' : 'blur(6px)',
               transition: 'filter 0.4s',
@@ -51,39 +65,38 @@ export default function Balance() {
           >
             {balance}
           </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            {showedBalance ? (
-              <VisibilityOffIcon
-                sx={{
-                  color: 'white',
-                  borderRadius: '10px',
-                  fontSize: 'small',
-                  marginLeft: '10px',
-                  cursor: 'pointer',
-                }}
-                onClick={handleShowBalance}
-              />
-            ) : (
-              <VisibilityIcon
-                sx={{
-                  color: 'white',
-                  fontSize: 'larger',
-                  marginLeft: '10px',
-                  cursor: 'pointer',
-                }}
-                onClick={handleShowBalance}
-              />
-            )}
-          </Box>
-        </CardContent>
-        <CardActions>
-          <Link href="/extrato" passHref>
-            <Button size="small">
-              <Typography variant="body2">Ver Extrato</Typography>
-            </Button>
-          </Link>
-        </CardActions>
-      </Card>
+
+          {showedBalance ? (
+            <VisibilityOffIcon
+              sx={{
+                cursor: 'pointer',
+                fontSize: { xs: '20px', sm: '24px' },
+              }}
+              onClick={handleShowBalance}
+            />
+          ) : (
+            <VisibilityIcon
+              sx={{
+                cursor: 'pointer',
+                fontSize: { xs: '20px', sm: '24px' },
+              }}
+              onClick={handleShowBalance}
+            />
+          )}
+        </Box>
+
+        <Link href="/extrato">
+          <Typography
+            sx={{
+              color: 'white',
+              textDecoration: 'underline',
+              cursor: 'pointer',
+            }}
+          >
+            Ver extrato
+          </Typography>
+        </Link>
+      </Box>
     </Box>
   );
 }

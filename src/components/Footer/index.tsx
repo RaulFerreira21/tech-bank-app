@@ -30,7 +30,7 @@ export default function Footer() {
       component="footer"
       sx={{
         backgroundColor: '#000',
-        color: '#fff',
+        color: '#ffffff',
         padding: '40px 80px',
         display: 'flex',
         justifyContent: 'space-around',
@@ -49,7 +49,7 @@ export default function Footer() {
                 sx={{
                   display: 'block',
                   textDecoration: 'none',
-                  color: '#fff',
+
                   mb: 0.5,
                   transition: 'color 0.3s',
                   cursor: 'pointer',
