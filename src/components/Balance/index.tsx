@@ -6,15 +6,44 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import logoSmall from '../../assets/logo_small_white.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Balance() {
-  const balance = 'R$ 7.000,00';
   const [showedBalance, setShowBalance] = useState(false);
+  const [balance, setBalance] = useState<string>('R$ 0,00');
 
   function handleShowBalance() {
     setShowBalance(!showedBalance);
   }
+
+  useEffect(() => {
+    // Função para buscar e somar o extrato
+    const fetchBalance = async () => {
+      try {
+        const res = await fetch('http://localhost:3001/extrato');
+        const data = await res.json();
+        const total = data.reduce(
+          (acc: number, item: { valor: number }) => acc + Number(item.valor),
+          0
+        );
+        setBalance(
+          total.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+            minimumFractionDigits: 2,
+          })
+        );
+      } catch (e) {
+        setBalance('R$ 0,00');
+      }
+    };
+
+    fetchBalance(); // Chama ao montar
+
+    const interval = setInterval(fetchBalance, 2000); // Atualiza a cada 2s
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Box

@@ -7,9 +7,44 @@ import { useState } from 'react';
 
 export default function Deposito() {
   const [contaDeposito, setContaDeposito] = useState('');
+  const [valor, setValor] = useState('');
 
   function handleConta(conta: string) {
     setContaDeposito(conta);
+  }
+
+  async function handleConcluir() {
+    if (!valor || !contaDeposito) {
+      alert('Preencha o valor e selecione a conta.');
+      return;
+    }
+
+    const valorNumerico = Number(valor.replace(',', '.').replace('R$', '').trim());
+    if (isNaN(valorNumerico) || valorNumerico <= 0) {
+      alert('Digite um valor válido para depósito.');
+      return;
+    }
+
+    // Monta o novo item para o extrato
+    const novoItem = {
+      tipo: 'Depósito',
+      descricao: contaDeposito === 'conta-corrente' ? 'Conta Corrente' : 'Conta Poupança',
+      horario: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+      valor: valorNumerico,
+      icone: 'AttachMoneyIcon',
+      data: new Date().toISOString().slice(0, 10),
+    };
+
+    // Salva no db.json via json-server
+    await fetch('http://localhost:3001/extrato', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(novoItem),
+    });
+
+    alert('Depósito realizado com sucesso!');
+    setValor('');
+    setContaDeposito('');
   }
 
   return (
@@ -25,6 +60,8 @@ export default function Deposito() {
           fullWidth
           variant="standard"
           placeholder="R$"
+          value={valor}
+          onChange={(e) => setValor(e.target.value)}
           slotProps={{
             input: {
               disableUnderline: false,
@@ -35,7 +72,7 @@ export default function Deposito() {
 
         <Box sx={{ mb: 4, width: '100%' }}>
           <Typography sx={{ mb: 1, fontWeight: 'bold' }}>
-            De qual conta vai sair esse valor?
+            Em qual conta você depositará esse valor?
           </Typography>
 
           <Box
@@ -60,7 +97,7 @@ export default function Deposito() {
         </Box>
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <CButton color="primary" text="Concluir" />
+          <CButton color="primary" text="Concluir" onClick={handleConcluir} />
         </Box>
       </Box>
     </>
