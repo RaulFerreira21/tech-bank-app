@@ -51,7 +51,7 @@ export default function Balance() {
           </Typography>
           {showedBalance ? (
             <VisibilityOffIcon
-              sx={{ color: "white", borderRadius: '10px', fontSize: "small", marginLeft: "10px", cursor: "pointer" }}
+              sx={{ color: "white", borderRadius: '10px', fontSize: "larger", marginLeft: "10px", cursor: "pointer" }}
               onClick={handleShowBalance}
             />
           ) : (

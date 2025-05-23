@@ -15,3 +15,10 @@
     text-decoration: underline;
     color: #121212
 }
+
+.actions{
+    background-color: #5B5B5B;
+}
+.actions :hover{
+    background-color: #363636;
+}
