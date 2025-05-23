@@ -5,11 +5,11 @@ export default function CardComponents() {
   return (
     <Box
       sx={{
-        display: 'block',
         width: '100%',
         bgcolor: '#121212',
         color: '#fff',
         p: 2,
+        borderBottom: '1px solid #454545',
       }}
     >
       <Typography variant="h4">Investimentos</Typography>
