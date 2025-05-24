@@ -1,7 +1,8 @@
-import { options } from "@/utils/optionsServices"
 import { Box, Typography } from "@mui/material"
 
-export default function CardServicos() {
+export function Servicos() {
+  const options = ["Crédito para celular", "Doações", "Empréstimo", "Seguros"]
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", px: 4, py: 1 }}>
       {options.map((item) => (
