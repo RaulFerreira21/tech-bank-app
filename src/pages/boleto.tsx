@@ -1,26 +1,28 @@
+'use client';
+
 import Title from '@/components/Title';
 import { Box, TextField, Typography } from '@mui/material';
 import CButton from '@/components/CButton';
 import { useState } from 'react';
 
-export default function Transferir() {
-  const [contaDeposito, setContaDeposito] = useState('');
-  const [destinatario, setDestinatario] = useState('');
+export default function PagarBoleto() {
+  const [conta, setConta] = useState('');
+  const [descricao, setDescricao] = useState('');
   const [valor, setValor] = useState('');
 
-  function handleConta(conta: string) {
-    setContaDeposito(conta);
+  function handleConta(contaSelecionada: string) {
+    setConta(contaSelecionada);
   }
 
   async function handleConcluir() {
-    if (!destinatario || !valor || !contaDeposito) {
+    if (!descricao || !valor || !conta) {
       alert('Preencha todos os campos e selecione a conta.');
       return;
     }
 
     const valorNumerico = Number(valor.replace(',', '.').replace('R$', '').trim());
     if (isNaN(valorNumerico) || valorNumerico <= 0) {
-      alert('Digite um valor válido para transferência.');
+      alert('Digite um valor válido para o boleto.');
       return;
     }
 
@@ -28,32 +30,35 @@ export default function Transferir() {
     const res = await fetch('http://localhost:3001/extrato');
     const extrato = await res.json();
     const saldoConta = extrato
-      .filter((item: any) => item.conta === contaDeposito)
+      .filter((item: any) =>
+        // Se o item tem campo conta, filtra normalmente. Se não tem, considera para todas as contas.
+        !item.conta || item.conta === conta
+      )
       .reduce((acc: number, item: any) => acc + Number(item.valor), 0);
 
     const saldoAjustado = Number(saldoConta.toFixed(2));
     const valorAjustado = Number(valorNumerico.toFixed(2));
 
     if (saldoAjustado < valorAjustado) {
-      alert('Saldo insuficiente para realizar a transferência.');
+      alert('Saldo insuficiente para pagar o boleto.');
       return;
     }
 
     const contaLabel =
-      contaDeposito === 'conta-corrente'
+      conta === 'conta-corrente'
         ? 'Conta Corrente'
-        : contaDeposito === 'conta-poupança'
+        : conta === 'conta-poupança'
         ? 'Conta Poupança'
-        : contaDeposito;
+        : conta;
 
     const novoItem = {
-      tipo: `Transferência (${contaLabel})`,
-      descricao: destinatario,
+      tipo: `Boleto (${contaLabel})`,
+      descricao,
       horario: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
       valor: -Math.abs(valorNumerico),
       icone: 'LanguageIcon',
       data: new Date().toISOString().slice(0, 10),
-      conta: contaDeposito,
+      conta,
     };
 
     await fetch('http://localhost:3001/extrato', {
@@ -62,15 +67,15 @@ export default function Transferir() {
       body: JSON.stringify(novoItem),
     });
 
-    alert('Transferência realizada com sucesso!');
-    setDestinatario('');
+    alert('Boleto pago com sucesso!');
+    setDescricao('');
     setValor('');
-    setContaDeposito('');
+    setConta('');
   }
 
   return (
     <>
-      <Title title="Realizar tranferência" />
+      <Title title="Pagar Boleto" />
 
       <Box sx={{ p: 3, bgcolor: '#ffffff' }}>
         <Typography
@@ -78,14 +83,14 @@ export default function Transferir() {
           color="textSecondary"
           sx={{ mb: 1, fontWeight: 'bold' }}
         >
-          Para quem deseja transferir?
+          Descrição do boleto
         </Typography>
         <TextField
           fullWidth
           variant="standard"
-          placeholder="Nome do destinatário"
-          value={destinatario}
-          onChange={(e) => setDestinatario(e.target.value)}
+          placeholder="Ex: Conta de luz"
+          value={descricao}
+          onChange={(e) => setDescricao(e.target.value)}
           slotProps={{
             input: {
               disableUnderline: false,
@@ -99,7 +104,7 @@ export default function Transferir() {
           color="textSecondary"
           sx={{ mb: 1, fontWeight: 'bold' }}
         >
-          Qual valor você deseja transferir?
+          Qual valor do boleto?
         </Typography>
         <TextField
           fullWidth
@@ -132,12 +137,12 @@ export default function Transferir() {
             }}
           >
             <CButton
-              color={contaDeposito === 'conta-corrente' ? 'info' : 'inherit'}
+              color={conta === 'conta-corrente' ? 'info' : 'inherit'}
               text="conta-corrente"
               onClick={() => handleConta('conta-corrente')}
             />
             <CButton
-              color={contaDeposito === 'conta-poupança' ? 'info' : 'inherit'}
+              color={conta === 'conta-poupança' ? 'info' : 'inherit'}
               text="conta-poupança"
               onClick={() => handleConta('conta-poupança')}
             />

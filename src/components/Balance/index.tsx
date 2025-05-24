@@ -10,23 +10,45 @@ import { useState, useEffect } from 'react';
 
 export default function Balance() {
   const [showedBalance, setShowBalance] = useState(false);
-  const [balance, setBalance] = useState<string>('R$ 0,00');
+  const [saldoCorrente, setSaldoCorrente] = useState<string>('R$ 0,00');
+  const [saldoPoupanca, setSaldoPoupanca] = useState<string>('R$ 0,00');
+  const [saldoTotal, setSaldoTotal] = useState<string>('R$ 0,00');
 
   function handleShowBalance() {
     setShowBalance(!showedBalance);
   }
 
   useEffect(() => {
-    // Função para buscar e somar o extrato
-    const fetchBalance = async () => {
+    const fetchBalances = async () => {
       try {
         const res = await fetch('http://localhost:3001/extrato');
         const data = await res.json();
-        const total = data.reduce(
-          (acc: number, item: { valor: number }) => acc + Number(item.valor),
-          0
+
+        const totalCorrente = data
+          .filter((item: any) => item.conta === 'conta-corrente')
+          .reduce((acc: number, item: any) => acc + Number(item.valor), 0);
+
+        const totalPoupanca = data
+          .filter((item: any) => item.conta === 'conta-poupança')
+          .reduce((acc: number, item: any) => acc + Number(item.valor), 0);
+
+        const total = totalCorrente + totalPoupanca;
+
+        setSaldoCorrente(
+          totalCorrente.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+            minimumFractionDigits: 2,
+          })
         );
-        setBalance(
+        setSaldoPoupanca(
+          totalPoupanca.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+            minimumFractionDigits: 2,
+          })
+        );
+        setSaldoTotal(
           total.toLocaleString('pt-BR', {
             style: 'currency',
             currency: 'BRL',
@@ -34,13 +56,14 @@ export default function Balance() {
           })
         );
       } catch (e) {
-        setBalance('R$ 0,00');
+        setSaldoCorrente('R$ 0,00');
+        setSaldoPoupanca('R$ 0,00');
+        setSaldoTotal('R$ 0,00');
       }
     };
 
-    fetchBalance(); // Chama ao montar
-
-    const interval = setInterval(fetchBalance, 2000); // Atualiza a cada 2s
+    fetchBalances();
+    const interval = setInterval(fetchBalances, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -63,63 +86,116 @@ export default function Balance() {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h6" fontWeight={600}>
-          Saldo
-        </Typography>
         <Image src={logoSmall} alt="Logo" width={21} height={20} />
-      </Box>
-
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          mt: 1,
-        }}
-      >
         <Box
           sx={{
             display: 'flex',
-            alignItems: 'center',
-            gap: 2,
-            px: 4,
+            flexDirection: 'row',
+            gap: 4,
+            ml: 2,
+            flex: 1,
+            justifyContent: 'center',
           }}
         >
-          <Typography
-            variant="h4"
-            sx={{
-              filter: showedBalance ? 'none' : 'blur(6px)',
-              transition: 'filter 0.4s',
-              userSelect: showedBalance ? 'text' : 'none',
-            }}
-          >
-            {balance}
-          </Typography>
-
-          {showedBalance ? (
-            <VisibilityOffIcon
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography
+              variant="subtitle1"
               sx={{
-                cursor: 'pointer',
-                fontSize: { xs: '20px', sm: '24px' },
+                filter: showedBalance ? 'none' : 'blur(6px)',
+                transition: 'filter 0.4s',
+                userSelect: showedBalance ? 'text' : 'none',
+                fontWeight: 600,
               }}
-              onClick={handleShowBalance}
-            />
-          ) : (
-            <VisibilityIcon
+            >
+              Conta Corrente
+            </Typography>
+            <Typography
+              variant="h6"
               sx={{
-                cursor: 'pointer',
-                fontSize: { xs: '20px', sm: '24px' },
+                filter: showedBalance ? 'none' : 'blur(6px)',
+                transition: 'filter 0.4s',
+                userSelect: showedBalance ? 'text' : 'none',
+                fontWeight: 600,
               }}
-              onClick={handleShowBalance}
-            />
-          )}
+            >
+              {saldoCorrente}
+            </Typography>
+          </Box>
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography
+              variant="subtitle1"
+              sx={{
+                filter: showedBalance ? 'none' : 'blur(6px)',
+                transition: 'filter 0.4s',
+                userSelect: showedBalance ? 'text' : 'none',
+                fontWeight: 600,
+              }}
+            >
+              Conta Poupança
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                filter: showedBalance ? 'none' : 'blur(6px)',
+                transition: 'filter 0.4s',
+                userSelect: showedBalance ? 'text' : 'none',
+                fontWeight: 600,
+              }}
+            >
+              {saldoPoupanca}
+            </Typography>
+          </Box>
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography
+              variant="subtitle1"
+              sx={{
+                filter: showedBalance ? 'none' : 'blur(6px)',
+                transition: 'filter 0.4s',
+                userSelect: showedBalance ? 'text' : 'none',
+                fontWeight: 700,
+              }}
+            >
+              Saldo Total
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                filter: showedBalance ? 'none' : 'blur(6px)',
+                transition: 'filter 0.4s',
+                userSelect: showedBalance ? 'text' : 'none',
+                fontWeight: 700,
+              }}
+            >
+              {saldoTotal}
+            </Typography>
+          </Box>
         </Box>
-
+        {showedBalance ? (
+          <VisibilityOffIcon
+            sx={{
+              cursor: 'pointer',
+              fontSize: { xs: '20px', sm: '24px' },
+              ml: 2,
+            }}
+            onClick={handleShowBalance}
+          />
+        ) : (
+          <VisibilityIcon
+            sx={{
+              cursor: 'pointer',
+              fontSize: { xs: '20px', sm: '24px' },
+              ml: 2,
+            }}
+            onClick={handleShowBalance}
+          />
+        )}
         <Link href="/extrato">
           <Typography
             sx={{
               color: 'white',
               textDecoration: 'underline',
               cursor: 'pointer',
+              ml: 2,
             }}
           >
             Ver extrato
