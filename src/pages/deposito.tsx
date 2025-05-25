@@ -25,7 +25,7 @@ export default function Deposito() {
       return;
     }
 
-    // Monta o novo item para o extrato
+    // Monta o novo item para o extrato, agora incluindo o campo 'conta'
     const novoItem = {
       tipo: 'Depósito',
       descricao: contaDeposito === 'conta-corrente' ? 'Conta Corrente' : 'Conta Poupança',
@@ -33,6 +33,7 @@ export default function Deposito() {
       valor: valorNumerico,
       icone: 'AttachMoneyIcon',
       data: new Date().toISOString().slice(0, 10),
+      conta: contaDeposito, // importante para separar os saldos
     };
 
     // Salva no db.json via json-server
