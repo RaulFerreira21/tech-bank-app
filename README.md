@@ -1,40 +1,68 @@
-<<<<<<< HEAD
-# tech-bank-app
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tech Bank App
 
-## Getting Started
+Este projeto foi desenvolvido pelos alunos:
+ - Diego Minelli - RM362536
+ - Jackson dos Santos - 
+ - Jefferson Guerra - RM363144
+ - Raul Ferreira - RM362993
+ - Thomas Aguiar - 
 
-First, run the development server:
+Matriculados na turma 3FRNT da Pós Graduação em Front-end Engeniering da FIAP.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O Tech Bank App é uma aplicação bancária digital desenvolvida em [Next.js](https://nextjs.org) com Material UI, simulando funcionalidades de uma fintech. O projeto permite visualizar saldo, extrato, realizar depósitos, transferências, pagamentos de boletos e acessar outros serviços de uma conta bancária.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Funcionalidades
+  As principais funcionalidades do projeto são:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Visualização de saldo em conta corrente e poupança
+- Extrato detalhado com agrupamento por data, edição e exclusão de lançamentos
+- Depósito em conta corrente ou poupança
+- Transferência entre contas
+- Pagamento de boletos
+- Listagem de serviços adicionais
+- Interface responsiva e moderna
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tecnologias Utilizadas
 
-## Learn More
+- [Next.js](https://nextjs.org)
+- [React](https://react.dev)
+- [Material UI](https://mui.com)
+- [json-server](https://github.com/typicode/json-server) (mock API)
 
-To learn more about Next.js, take a look at the following resources:
+## Como rodar o projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone o repositório e instale as dependências:**
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Inicie o servidor de dados (json-server):**
+   ```bash
+   npm install -g json-server
+   json-server --watch json-server/db.json --port 3001
+   ```
 
-## Deploy on Vercel
+3. **Inicie o servidor de desenvolvimento Next.js:**
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Acesse a aplicação:**
+   Abra [http://localhost:3000](http://localhost:3000) no seu navegador. Após abrir a aplicação no seu navegador, aparecerá uma tela inicial informativa sobre o Bytebank, para acessar a parte transacional do projeto, clique em "Já tenho conta".
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> 68c71c4 (Configuracao inicial do projeto)
+## Estrutura do Projeto
+
+- `src/pages/` — Páginas principais (dashboard, extrato, depósito, etc)
+- `src/components/` — Componentes reutilizáveis da interface
+- `src/assets/` — Imagens e ícones
+- `src/utils/` — Utilitários e constantes
+- `json-server/db.json` — Base de dados simulada para extratos e operações financeiras
+
+## Observações
+
+- O projeto utiliza o `json-server` para simular uma API REST. Certifique-se de deixá-lo rodando para que as operações funcionem corretamente.
+- Os dados não são persistidos em um banco real, apenas no arquivo `db.json`.
+
+## Licença
+
+Projeto desenvolvido para fins educacionais no Tech Challenge FIAP. Pós Graduação em Front-end Engeniering
