@@ -1,0 +1,18 @@
+.layout {
+  background-color: #121212;
+}
+.MuiContainer-root {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.navigationLink {
+  text-decoration: none;
+  color: white;
+}
+
+.actions {
+  background-color: #5b5b5b;
+}
+.actions :hover {
+  background-color: #363636;
+}

@@ -1,0 +1,154 @@
+{
+  "extrato": [
+    {
+      "id": "3",
+      "tipo": "Depósito",
+      "descricao": "Banco XYZ",
+      "horario": "12:00",
+      "valor": 500,
+      "icone": "AttachMoneyIcon",
+      "data": "2025-05-14",
+      "conta": "conta-corrente"
+    },
+    {
+      "id": "4",
+      "tipo": "Compra Online",
+      "descricao": "Amazon",
+      "horario": "12:00",
+      "valor": -150,
+      "icone": "StorefrontIcon",
+      "data": "2025-05-15",
+      "conta": "conta-poupança"
+    },
+    {
+      "id": "5",
+      "tipo": "Compra Online",
+      "descricao": "iFood",
+      "horario": "20:00",
+      "valor": -39.59,
+      "icone": "StorefrontIcon",
+      "data": "2025-05-15",
+      "conta": "conta-corrente"
+    },
+    {
+      "id": "6",
+      "tipo": "Compra Online",
+      "descricao": "iFood",
+      "horario": "20:00",
+      "valor": -39.59,
+      "icone": "StorefrontIcon",
+      "data": "2025-05-15",
+      "conta": "conta-poupança"
+    },
+    {
+      "id": "7",
+      "tipo": "Compra Online",
+      "descricao": "iFood",
+      "horario": "20:00",
+      "valor": -39.59,
+      "icone": "StorefrontIcon",
+      "data": "2025-05-15",
+      "conta": "conta-corrente"
+    },
+    {
+      "id": "8",
+      "tipo": "Compra Online",
+      "descricao": "iFood",
+      "horario": "20:00",
+      "valor": -39.59,
+      "icone": "StorefrontIcon",
+      "data": "2025-05-15",
+      "conta": "conta-poupança"
+    },
+    {
+      "id": "70ec",
+      "tipo": "Depósito",
+      "descricao": "Conta Corrente",
+      "horario": "18:53",
+      "valor": 1000,
+      "icone": "AttachMoneyIcon",
+      "data": "2025-05-23",
+      "conta": "conta-corrente"
+    },
+    {
+      "id": "ff89",
+      "tipo": "Depósito",
+      "descricao": "Conta Poupança",
+      "horario": "18:57",
+      "valor": 500,
+      "icone": "AttachMoneyIcon",
+      "data": "2025-05-23",
+      "conta": "conta-poupança"
+    },
+    {
+      "id": "a7b6",
+      "tipo": "Boleto (Conta Corrente)",
+      "descricao": "Conta de Luz",
+      "horario": "11:04",
+      "valor": -1000,
+      "icone": "LanguageIcon",
+      "data": "2025-05-24",
+      "conta": "conta-corrente"
+    },
+    {
+      "id": "072a",
+      "tipo": "Boleto (Conta Poupança)",
+      "descricao": "Conta de Luz",
+      "horario": "11:12",
+      "valor": -100,
+      "icone": "LanguageIcon",
+      "data": "2025-05-24",
+      "conta": "conta-poupança"
+    },
+    {
+      "id": "dcb1",
+      "tipo": "Boleto (Conta Corrente)",
+      "descricao": "Conta de Àgua",
+      "horario": "11:12",
+      "valor": -100,
+      "icone": "LanguageIcon",
+      "data": "2025-05-24",
+      "conta": "conta-corrente"
+    },
+    {
+      "id": "0589",
+      "tipo": "Depósito",
+      "descricao": "Conta Corrente",
+      "horario": "11:15",
+      "valor": 10000,
+      "icone": "AttachMoneyIcon",
+      "data": "2025-05-24",
+      "conta": "conta-corrente"
+    },
+    {
+      "id": "673d",
+      "tipo": "Depósito",
+      "descricao": "Conta Poupança",
+      "horario": "11:16",
+      "valor": 100000,
+      "icone": "AttachMoneyIcon",
+      "data": "2025-05-24",
+      "conta": "conta-poupança"
+    },
+    {
+      "id": "bfff",
+      "tipo": "Boleto (Conta Corrente)",
+      "descricao": "Xbox Game Pass",
+      "horario": "11:54",
+      "valor": -50,
+      "icone": "LanguageIcon",
+      "data": "2025-05-24",
+      "conta": "conta-corrente"
+    },
+    {
+      "id": "3cd2",
+      "tipo": "Transferência (Conta Corrente)",
+      "descricao": "Teste",
+      "horario": "11:54",
+      "valor": -270.82,
+      "icone": "LanguageIcon",
+      "data": "2025-05-24",
+      "conta": "conta-corrente"
+    }
+  ]
+}

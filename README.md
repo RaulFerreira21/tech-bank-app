@@ -1,29 +1,68 @@
-This is a Next.js project bootstrapped with create-next-app.
+# Tech Bank App
 
-Getting Started
-First, run the development server:
+Este projeto foi desenvolvido pelos alunos:
+ - Diego Minelli - RM362536
+ - Jackson dos Santos - 
+ - Jefferson Guerra - RM363144
+ - Raul Ferreira - RM362993
+ - Thomas Aguiar - 
 
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-Open http://localhost:3000 with your browser to see the result.
+Matriculados na turma 3FRNT da Pós Graduação em Front-end Engeniering da FIAP.
 
-You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file.
+O Tech Bank App é uma aplicação bancária digital desenvolvida em [Next.js](https://nextjs.org) com Material UI, simulando funcionalidades de uma fintech. O projeto permite visualizar saldo, extrato, realizar depósitos, transferências, pagamentos de boletos e acessar outros serviços de uma conta bancária.
 
-This project uses next/font to automatically optimize and load Geist, a new font family for Vercel.
+## Funcionalidades
+  As principais funcionalidades do projeto são:
 
-Learn More
-To learn more about Next.js, take a look at the following resources:
+- Visualização de saldo em conta corrente e poupança
+- Extrato detalhado com agrupamento por data, edição e exclusão de lançamentos
+- Depósito em conta corrente ou poupança
+- Transferência entre contas
+- Pagamento de boletos
+- Listagem de serviços adicionais
+- Interface responsiva e moderna
 
-Next.js Documentation - learn about Next.js features and API.
-Learn Next.js - an interactive Next.js tutorial.
-You can check out the Next.js GitHub repository - your feedback and contributions are welcome!
+## Tecnologias Utilizadas
 
-Deploy on Vercel
-The easiest way to deploy your Next.js app is to use the Vercel Platform from the creators of Next.js.
+- [Next.js](https://nextjs.org)
+- [React](https://react.dev)
+- [Material UI](https://mui.com)
+- [json-server](https://github.com/typicode/json-server) (mock API)
 
-Check out our Next.js deployment documentation for more details.
+## Como rodar o projeto
+
+1. **Clone o repositório e instale as dependências:**
+   ```bash
+   npm install
+   ```
+
+2. **Inicie o servidor de dados (json-server):**
+   ```bash
+   npm install -g json-server
+   json-server --watch json-server/db.json --port 3001
+   ```
+
+3. **Inicie o servidor de desenvolvimento Next.js:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Acesse a aplicação:**
+   Abra [http://localhost:3000](http://localhost:3000) no seu navegador. Após abrir a aplicação no seu navegador, aparecerá uma tela inicial informativa sobre o Bytebank, para acessar a parte transacional do projeto, clique em "Já tenho conta".
+
+## Estrutura do Projeto
+
+- `src/pages/` — Páginas principais (dashboard, extrato, depósito, etc)
+- `src/components/` — Componentes reutilizáveis da interface
+- `src/assets/` — Imagens e ícones
+- `src/utils/` — Utilitários e constantes
+- `json-server/db.json` — Base de dados simulada para extratos e operações financeiras
+
+## Observações
+
+- O projeto utiliza o `json-server` para simular uma API REST. Certifique-se de deixá-lo rodando para que as operações funcionem corretamente.
+- Os dados não são persistidos em um banco real, apenas no arquivo `db.json`.
+
+## Licença
+
+Projeto desenvolvido para fins educacionais no Tech Challenge FIAP. Pós Graduação em Front-end Engeniering
