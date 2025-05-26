@@ -5,11 +5,12 @@ Este projeto foi desenvolvido pelos alunos:
  - Jackson dos Santos - 
  - Jefferson Guerra - RM363144
  - Raul Ferreira - RM362993
- - Thomas Aguiar - 
+ - Thomas Aguiar - RM363369
 
 Matriculados na turma 3FRNT da Pós Graduação em Front-end Engeniering da FIAP.
 
 O Tech Bank App é uma aplicação bancária digital desenvolvida em [Next.js](https://nextjs.org) com Material UI, simulando funcionalidades de uma fintech. O projeto permite visualizar saldo, extrato, realizar depósitos, transferências, pagamentos de boletos e acessar outros serviços de uma conta bancária.
+Decidimos também reimaginar em alguns pontos o layout proposto ara o projeto, que pode ser encontrato nesse projeto do [Figma](https://www.figma.com/design/06sUi5crvAO4JuQHdGkdo2/Tech-Challenge?node-id=0-1&p=f&t=GN8a2pifAUeCwBl0-0)
 
 ## Funcionalidades
   As principais funcionalidades do projeto são:
