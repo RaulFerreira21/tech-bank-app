@@ -6,7 +6,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import Link from 'next/link';
 
 export default function HeaderComponent() {
-  const user: string = 'userX';
+  const user: string = 'Usiário';
 
   return (
     <Box
