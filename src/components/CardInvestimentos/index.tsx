@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material"
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp"
 
-export function CardInvestimentos() {
+export default function CardInvestimentos() {
   return (
     <Box
       sx={{

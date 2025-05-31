@@ -51,6 +51,27 @@ Decidimos também reimaginar em alguns pontos o layout proposto ara o projeto, q
 4. **Acesse a aplicação:**
    Abra [http://localhost:3000](http://localhost:3000) no seu navegador. Após abrir a aplicação no seu navegador, aparecerá uma tela inicial informativa sobre o Bytebank, para acessar a parte transacional do projeto, clique em "Já tenho conta".
 
+## Documentação de Componentes com Storybook
+
+Este projeto utiliza o [Storybook](https://storybook.js.org/) para documentar e visualizar os componentes de interface de forma isolada.
+
+### O que foi feito
+
+- **Configuração do Storybook** integrada ao projeto Next.js.
+- **Stories criados** para os principais componentes da pasta `src/components`, permitindo visualizar exemplos, estados e variações.
+
+### Como rodar o Storybook
+
+1. Inicie o Storybook:
+   ```bash
+   npm run storybook
+   ```
+
+2. Acesse o Storybook no navegador:
+   ```
+   http://localhost:6006
+   ```
+
 ## Estrutura do Projeto
 
 - `src/pages/` — Páginas principais (dashboard, extrato, depósito, etc)
@@ -58,6 +79,7 @@ Decidimos também reimaginar em alguns pontos o layout proposto ara o projeto, q
 - `src/assets/` — Imagens e ícones
 - `src/utils/` — Utilitários e constantes
 - `json-server/db.json` — Base de dados simulada para extratos e operações financeiras
+- `src/stories` - Documentação visual dos componentes do projeto
 
 ## Observações
 

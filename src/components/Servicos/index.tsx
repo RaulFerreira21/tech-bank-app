@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material"
 
-export function Servicos() {
+export default function Servicos() {
   const options = ["Crédito para celular", "Doações", "Empréstimo", "Seguros"]
 
   return (
